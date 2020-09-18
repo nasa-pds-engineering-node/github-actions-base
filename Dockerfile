@@ -28,7 +28,7 @@ RUN : \
     apk update &&\
     apk add --virtual .build gcc musl-dev openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make &&\
     apk add libxml2 libxslt git ruby &&\
-    pip install --upgrade pip setuptools wheel sphinx &&\
+    pip install --upgrade pip setuptools wheel sphinx twine &&\
     cd /usr/src &&\
     git clone https://github.com/github-changelog-generator/github-changelog-generator.git &&\
     cd github-changelog-generator &&\
