@@ -37,7 +37,7 @@ LABEL "maintainer"="Sean Kelly <kelly@seankelly.biz>"
 # Watch out for that ``pds-github-util``: its dependencies are *huge* 😮
 # And they take forver to build 😫
 
-RUN : \
+RUN : &&\
     apk update &&\
     apk add --no-progress --virtual /build gcc musl-dev openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make &&\
     apk add --no-progress libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client &&\
