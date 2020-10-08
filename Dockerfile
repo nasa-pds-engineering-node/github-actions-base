@@ -37,10 +37,14 @@ LABEL "maintainer"="Sean Kelly <kelly@seankelly.biz>"
 # Watch out for that ``pds-github-util``: its dependencies are *huge* 😮
 # And they take forver to build 😫
 
+COPY m2-repository.tar.bz2 /tmp
 RUN : &&\
+    mkdir /root/.m2 &&\
+    tar x -C /root/.m2 -j -f /tmp/m2-repository.tar.bz2 &&\
+    rm /tmp/m2-repository.tar.bz2 &&\
     apk update &&\
     apk add --no-progress --virtual /build gcc musl-dev openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make &&\
-    apk add --no-progress libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client &&\
+    apk add --no-progress libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client openjdk11-jdk maven &&\
     pip install --upgrade \
         pip setuptools wheel \
         sphinx==${sphinx} \
