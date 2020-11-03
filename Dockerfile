@@ -52,7 +52,7 @@ RUN : &&\
     rm /tmp/m2-repository.tar.bz2 &&\
     apk update &&\
     apk add --no-progress --virtual /build openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make &&\
-    apk add --no-progress gcc musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client openjdk11-jdk maven gnupg &&\
+    apk add --no-progress gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client openjdk11-jdk maven gnupg &&\
     pip install --upgrade \
         pip setuptools wheel \
         sphinx==${sphinx} \
