@@ -16,10 +16,13 @@ ENV github_changelog_commit 322e30a78115ab948e358cd916a9f78e55fe21c1
 # Python Package Pins
 # ~~~~~~~~~~~~~~~~~~~
 
-ENV sphinx          3.2.1
-ENV twine           3.2.0
-ENV github3_py      1.3.0
-ENV pds_github_util 0.13.0
+ENV github3_py       1.3.0
+ENV pds_github_util  0.13.0
+ENV requests         2.23.0
+ENV sphinx           3.2.1
+ENV sphinx_argparse  0.2.5
+ENV sphinx_rtd_theme 0.5.0
+ENV twine            3.2.0
 
 
 # Java Minutiae
@@ -55,10 +58,14 @@ RUN : &&\
     apk add --no-progress gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client openjdk11-jdk maven gnupg &&\
     pip install --upgrade \
         pip setuptools wheel \
+        github3.py==${github3_py} \
+        pds-github-util==${pds_github_util} \
+        requests==${requests} \
+        sphinx-argparse==${sphinx_argparse} \
+        sphinx-rtd-theme==${sphinx_rtd_theme} \
         sphinx==${sphinx} \
         twine==${twine} \
-        github3.py==${github3_py} \
-        pds-github-util==${pds_github_util} &&\
+        &&\
     cd /usr/src &&\
     git clone https://github.com/github-changelog-generator/github-changelog-generator.git &&\
     cd github-changelog-generator &&\
