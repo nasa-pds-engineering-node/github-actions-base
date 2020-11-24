@@ -25,15 +25,6 @@ ENV sphinx_rtd_theme 0.5.0
 ENV twine            3.2.0
 
 
-# Java Minutiae
-# ~~~~~~~~~~~~~
-#
-# If we change the version of Java installed below (see "Image Details"), you
-# may need to update JAVA_HOME.
-
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk
-
-
 # Metadata
 # ~~~~~~~~
 
@@ -55,7 +46,7 @@ RUN : &&\
     rm /tmp/m2-repository.tar.bz2 &&\
     apk update &&\
     apk add --no-progress --virtual /build openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make &&\
-    apk add --no-progress gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client openjdk11-jdk maven gnupg &&\
+    apk add --no-progress gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk8 gnupg &&\
     pip install --upgrade \
         pip setuptools wheel \
         github3.py==${github3_py} \
