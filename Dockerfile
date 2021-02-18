@@ -17,7 +17,7 @@ ENV github_changelog_commit 322e30a78115ab948e358cd916a9f78e55fe21c1
 # ~~~~~~~~~~~~~~~~~~~
 
 ENV github3_py       1.3.0
-ENV pds_github_util  0.13.0
+ENV pds_github_util  0.16.8
 ENV requests         2.23.0
 ENV sphinx           3.2.1
 ENV sphinx_argparse  0.2.5
@@ -45,7 +45,7 @@ RUN : &&\
     tar x -C /root/.m2 -j -f /tmp/m2-repository.tar.bz2 &&\
     rm /tmp/m2-repository.tar.bz2 &&\
     apk update &&\
-    apk add --no-progress --virtual /build openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make &&\
+    apk add --no-progress --virtual /build openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make python3-dev cargo &&\
     apk add --no-progress git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk8 gnupg &&\
     pip install --upgrade \
         pip setuptools wheel \

@@ -52,10 +52,9 @@ docker image push nasapds/pds-github-actions-base:latest
 
 ## ⏰ Future Work
 
-
 - 🤡 Well, until the PDS makes its own group account on the Docker Hub, this stuff lives in `nasapds`'s account
 - 😮 You'd think [GitHub Packages](https://github.com/features/packages) would be an alternative, but [GitHub Actions doesn't support using images from GitHub Packages](https://github.community/t/use-docker-image-from-github-packages-as-container/118709)!
 - 💀 There isn't even [anonymous pulls of images from GitHub Packages](https://github.community/t/make-it-possible-to-pull-docker-images-anonymously-from-github-package-registry/16677)!
 - 😑 Apparently engineers at GitHub are recommending to [migrate from GitHub Packages to the new GitHub Container Registry](https://docs.github.com/en/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images). The Container Registry is currently in public β.
-- 💽 It's currently ~~213~~ ~~216~~ ~~579~~ ~~593~~ ~~790~~ ~~815~~ 669
- MiB. Let's try and keep it around there 😲 (Thanks, Java. And C++. But mostly Java.)
+- 💽 It's currently ~~213~~ ~~216~~ ~~579~~ ~~593~~ ~~790~~ ~~815~~ ~~669~~ 931
+ MiB. ~~Let's try and keep it around there 😲 (Thanks, Java. And C++. But mostly Java.)~~ YIKES. It's almost a gigabyte now! Apparently upgrading `pds-github-util` needed an upgrade to `cryptography` which got **huge**.
