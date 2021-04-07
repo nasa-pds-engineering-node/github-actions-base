@@ -46,7 +46,7 @@ RUN : &&\
     rm /tmp/m2-repository.tar.bz2 &&\
     apk update &&\
     apk add --no-progress --virtual /build openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make python3-dev cargo &&\
-    apk add --no-progress git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk11 gnupg &&\
+    apk add --no-progress git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk8 gnupg &&\
     pip install --upgrade \
         pip setuptools wheel \
         github3.py==${github3_py} \
@@ -57,7 +57,14 @@ RUN : &&\
         sphinx==${sphinx} \
         twine==${twine} \
         &&\
-    gem install github_changelog_generator --version 1.15.2 &&\
+    cd /usr/src &&\
+    git clone https://github.com/github-changelog-generator/github-changelog-generator.git &&\
+    cd github-changelog-generator &&\
+    git checkout ${github_changelog_commit} &&\
+    gem build github_changelog_generator.gemspec &&\
+    gem install github_changelog_generator-1.15.2.gem --source https://rubygems.org &&\
+    cd .. &&\
+    rm -r github-changelog-generator &&\
     apk del /build &&\
     rm -rf /var/cache/apk/* &&\
     : /
