@@ -46,7 +46,7 @@ RUN : &&\
     rm /tmp/m2-repository.tar.bz2 &&\
     apk update &&\
     apk add --no-progress --virtual /build openssl-dev libxml2-dev libxslt-dev libffi-dev ruby-dev make python3-dev cargo &&\
-    apk add --no-progress git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk11 gnupg &&\
+    apk add --no-progress bash git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk11 gnupg &&\
     pip install --upgrade \
         pip setuptools wheel \
         github3.py==${github3_py} \
@@ -63,6 +63,8 @@ RUN : &&\
     git checkout ${github_changelog_commit} &&\
     gem build github_changelog_generator.gemspec &&\
     gem install github_changelog_generator-1.15.2.gem --source https://rubygems.org &&\
+    wget -qP /usr/local/bin https://github.com/X1011/git-directory-deploy/raw/master/deploy.sh &&\
+    chmod +x /usr/local/bin/deploy.sh &&\
     cd .. &&\
     rm -r github-changelog-generator &&\
     apk del /build &&\
