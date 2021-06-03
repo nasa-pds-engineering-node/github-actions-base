@@ -40,7 +40,9 @@ FROM nasapds/pds-github-actions-base:latest
 
 ## 🔧 Maintaining this Base
 
-Well the only thing you really have to do is occasionally update the `Dockerfile` with new dependencies and then rebuild and republish the image to the [Docker Hub](https://hub.docker.com/), via:
+Making a release of this repository on GitHub will trigger a GitHub Actions workflow that publishes a new `latest` image to the [Docker Hub](https://hub.docker.com/).
+
+But if you ever need to do that by hand, try this:
 
 ```console
 docker image build --tag pds-github-actions-base:latest .
