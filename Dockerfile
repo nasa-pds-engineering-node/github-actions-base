@@ -17,7 +17,7 @@ ENV github_changelog_commit 322e30a78115ab948e358cd916a9f78e55fe21c1
 # ~~~~~~~~~~~~~~~~~~~
 
 ENV github3_py       1.3.0
-ENV pds_github_util  0.16.8
+ENV pds_github_util  0.22.0
 ENV requests         2.23.0
 ENV sphinx           3.2.1
 ENV sphinx_argparse  0.2.5
