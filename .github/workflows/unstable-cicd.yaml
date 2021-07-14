@@ -1,21 +1,22 @@
-# 🏃‍♀️ Continuous Integration and Delivery: Release
+# 🏃‍♀️ Continuous Integration and Delivery: Unstable
 # ================================================
 #
 # 🤞
 
 ---
 
-name: 𝌚 Release
+name: 🤪 Unstable CI/CD
 
 
 # Driving Event
 # -------------
 #
-# What starts this workflow: a release gets created on GitHub
+# What starts this workflow: a push to main
 
 on:
-    release:
-        types: [published]
+    push:
+        branches:
+            - main
 
 
 # What to Do
@@ -27,8 +28,8 @@ jobs:
     image-build-and-push:
         name: 🌄 Image Build & Push
         runs-on: ubuntu-latest
+        if: github.actor != 'pdsen-ci'
         steps:
-            # Apparently a checkout action isn't needed here as the BuildKit handles it
             -
                 name: 🏢 Docker Buildx Setup
                 uses: docker/setup-buildx-action@v1
@@ -43,9 +44,9 @@ jobs:
                 name: 😤 Build & Push
                 uses: docker/build-push-action@v2
                 with:
-                    context: .
                     push: true
                     tags: nasapds/pds-github-actions-base:latest
+                    secrets: GIT_AUTH_TOKEN=${{secrets.ADMIN_GITHUB_TOKEN}}
 
 
 # -*- mode: yaml; indent: 4; fill-column: 120; coding: utf-8 -*-
