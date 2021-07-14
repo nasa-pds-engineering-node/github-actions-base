@@ -1,7 +1,7 @@
 # 🌄 PDS Engineering Actions: Base Image
 
 
-[GitHub Actions](https://github.com/features/actions) let you run workflows for software repositories for such things as continuous integration, code quality, documentation extraction, continuous delivery, and so forth. The [Planetary Data System (PDS)](https://pds.nasa.gov/) uses GitHub actions for these purposes.
+[GitHub Actions](https://github.com/features/actions) let you run workflows for software repositories for such things as continuous integration, code quality, documentation extraction, continuous delivery, and so forth. The [Planetary Data System (PDS)](https://pds.nasa.gov/) uses GitHub Actions for these purposes.
 
 Workflows consist of _actions_, each of which can be executed using JavaScript, so-called "composite" actions (essentially shell macros), or as [Docker](https://www.docker.com/) containers. Docker-based actions give you the most flexibility, letting you define your action in whatever programming language you enjoy with access to whatever libraries and APIs are convenient (so long as it's a Linux-based container).
 
@@ -24,7 +24,7 @@ Of course, this makes a few assumptions:
   - Ruby (yes, in addition to Python)
   - Java (yes, in addition to Ruby)
 
-And we might expand on this in the future. (Yuck.)
+And we might expand on this in the future.
 
 
 ## ℹ️ Using this Base
@@ -40,7 +40,12 @@ FROM nasapds/pds-github-actions-base:latest
 
 ## 🔧 Maintaining this Base
 
-Making a release of this repository on GitHub will trigger a GitHub Actions workflow that publishes a new `latest` image to the [Docker Hub](https://hub.docker.com/).
+To update this base image, just make changes to the `Dockerfile` and, if needed, the `m2-repository.tar.bz2`.
+
+To make a release of this image on the [Docker Hub](https://hub.docker.com/), do a push to GitHub:
+
+- A push to the `main` branch will trigger an automatic build of the image with the `:latest` tag and push it to `nasapds/pds-github-actions-base:latest` on the Docker Hub.
+- A push to a `vX.Y.Z` tag will trigger an automatic build of the image with the `:X.Y.Z` tag and push it to `nasapds/pds-github-actions-base:X.Y.Z`, where `X.Y.Z` is a [semantic version](https://www.semver.org/).
 
 But if you ever need to do that by hand, try this:
 
@@ -50,6 +55,8 @@ docker image tag pds-github-actions-base:latest nasapds/pds-github-actions-base:
 docker login
 docker image push nasapds/pds-github-actions-base:latest
 ```
+
+Substitute `:latest` with whatever's appropriate.
 
 
 ## ⏰ Future Work
