@@ -17,7 +17,6 @@ ENV github_changelog_commit 322e30a78115ab948e358cd916a9f78e55fe21c1
 # ~~~~~~~~~~~~~~~~~~~
 
 ENV github3_py       1.3.0
-ENV pds_github_util  0.22.2
 ENV requests         2.23.0
 ENV sphinx           3.2.1
 ENV sphinx_argparse  0.2.5
@@ -50,7 +49,7 @@ RUN : &&\
     pip install --upgrade \
         pip setuptools wheel \
         github3.py==${github3_py} \
-        pds-github-util==${pds_github_util} \
+        pds-github-util \
         requests==${requests} \
         sphinx-argparse==${sphinx_argparse} \
         sphinx-rtd-theme==${sphinx_rtd_theme} \
