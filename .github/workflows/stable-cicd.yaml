@@ -15,8 +15,8 @@ name: 😌 Stable CI/CD
 
 on:
     push:
-        tags:
-            - 'v[0-9]+.[0-9]+.[0-9]+'
+        branches:
+            - 'release/*'
     repository_dispatch:
         types: [pds-github-util-built]
 
