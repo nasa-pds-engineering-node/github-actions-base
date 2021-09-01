@@ -43,7 +43,7 @@ jobs:
                     skip-unshallow: 'true'
             -
                 name: Show Tag
-                id: display
+                id: display_1
                 run: |
                     echo 'Output from Find Tag: ${{steps.query_tag.outputs.tag}}'``
             -
@@ -56,7 +56,7 @@ jobs:
                         type=semver,pattern={{version}},value=${{steps.query_tag.outputs.tag}}
             -
                 name: Show Tag
-                id: display
+                id: display_2
                 run: |
                     echo 'Output from Find Tag: ${{steps.meta.outputs.tags}}'``
             #-
