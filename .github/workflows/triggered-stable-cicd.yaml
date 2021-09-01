@@ -46,15 +46,19 @@ jobs:
                 id: display
                 run: |
                     echo 'Output from Find Tag: ${{steps.query_tag.outputs.tag}}'``
-            #-
-                #name: 🔍 Metadata Generation
-                #id: meta
-                #uses: docker/metadata-action@v3
-                #with:
-                    #images: nasapds/pds-github-actions-base
-                    #tags: |
-                        #type=ref,event=tag
-                        #type=semver,pattern={{version}}
+            -
+                name: 🔍 Metadata Generation
+                id: meta
+                uses: docker/metadata-action@v3
+                with:
+                    images: nasapds/pds-github-actions-base
+                    tags: |
+                        type=semver,pattern={{version}},value=${{steps.query_tag.outputs.tag}}
+            -
+                name: Show Tag
+                id: display
+                run: |
+                    echo 'Output from Find Tag: ${{steps.meta.outputs.tags}}'``
             #-
                 #name: 🪵 Docker Hub Login
                 #uses: docker/login-action@v1
