@@ -37,6 +37,7 @@ jobs:
                 uses: docker/setup-buildx-action@v1
             -
                 name: Query Tag
+                id: query_tag
                 uses: jimschubert/query-tag-action@v2
                 with:
                     skip-unshallow: 'true'
@@ -44,7 +45,7 @@ jobs:
                 name: Show Tag
                 id: display
                 run: |
-                    echo 'Output from Find Tag: ${{steps.tagger.outputs.tag}}'``
+                    echo 'Output from Find Tag: ${{steps.query_tag.outputs.tag}}'``
             #-
                 #name: 🔍 Metadata Generation
                 #id: meta
