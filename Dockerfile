@@ -48,8 +48,8 @@ RUN : &&\
     apk add --no-progress bash git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk8 gnupg &&\
     pip install --upgrade \
         pip setuptools wheel \
-        github3.py==${github3_py} \
         pds-github-util \
+        github3.py==${github3_py} \
         requests==${requests} \
         sphinx-argparse==${sphinx_argparse} \
         sphinx-rtd-theme==${sphinx_rtd_theme} \
