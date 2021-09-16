@@ -11,8 +11,8 @@ Enter _this_ image. By deriving specific GitHub Actions from _this_ image, we ma
 
 Of course, this makes a few assumptions:
 
-- PDS GitHub actions will need Python 3.8.5.
-- They'll run on Alpine Linux 3.12.
+- PDS GitHub actions will need Python 3.9.
+- They'll run on Alpine Linux 3.14.
 - They'll have access to development tools:
   - GCC
   - MUSL C library
