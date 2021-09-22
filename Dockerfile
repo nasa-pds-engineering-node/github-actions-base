@@ -44,8 +44,8 @@ RUN : &&\
     tar x -C /root/.m2 -j -f /tmp/m2-repository.tar.bz2 &&\
     rm /tmp/m2-repository.tar.bz2 &&\
     apk update &&\
-    apk add --no-progress --virtual /build openssl-dev libxml2-dev libxslt-dev ruby-dev make python3-dev cargo &&\
-    apk add --no-progress bash git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk8 gnupg libgit2-dev libffi-dev &&\
+    apk add --no-progress --virtual /build ruby-dev make cargo &&\
+    apk add --no-progress bash git-lfs gcc g++ musl-dev libxml2 libxslt git ruby ruby-etc ruby-json ruby-multi_json ruby-io-console ruby-bigdecimal openssh-client maven openjdk8 gnupg libgit2-dev libffi-dev libxml2-dev libxslt-dev python3-dev openssl-dev &&\
     pip install --upgrade \
         pip setuptools wheel \
         pds-github-util \
