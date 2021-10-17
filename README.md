@@ -32,7 +32,7 @@ And we might expand on this in the future.
 To use this base image in your own Docker-based action, simply derive from it in your action's `Dockerfile`:
 
 ```Dockerfile
-FROM nasapds/pds-github-actions-base:latest
+FROM nasapds/github-actions-base:latest
 
 # Action-specific stuff here
 ```
@@ -44,16 +44,16 @@ To update this base image, just make changes to the `Dockerfile` and, if needed,
 
 To make a release of this image on the [Docker Hub](https://hub.docker.com/), do a push to GitHub:
 
-- A push to the `main` branch will trigger an automatic build of the image with the `:latest` tag and push it to `nasapds/pds-github-actions-base:latest` on the Docker Hub.
-- A push to a `vX.Y.Z` tag will trigger an automatic build of the image with the `:X.Y.Z` tag and push it to `nasapds/pds-github-actions-base:X.Y.Z`, where `X.Y.Z` is a [semantic version](https://www.semver.org/).
+- A push to the `main` branch will trigger an automatic build of the image with the `:latest` tag and push it to `nasapds/github-actions-base:latest` on the Docker Hub.
+- A push to a `vX.Y.Z` tag will trigger an automatic build of the image with the `:X.Y.Z` tag and push it to `nasapds/github-actions-base:X.Y.Z`, where `X.Y.Z` is a [semantic version](https://www.semver.org/).
 
 But if you ever need to do that by hand, try this:
 
 ```console
-docker image build --tag pds-github-actions-base:latest .
-docker image tag pds-github-actions-base:latest nasapds/pds-github-actions-base:latest
+docker image build --tag github-actions-base:latest .
+docker image tag github-actions-base:latest nasapds/github-actions-base:latest
 docker login
-docker image push nasapds/pds-github-actions-base:latest
+docker image push nasapds/github-actions-base:latest
 ```
 
 Substitute `:latest` with whatever's appropriate.
