@@ -38,8 +38,7 @@ LABEL "maintainer"="Sean Kelly <kelly@seankelly.biz>"
 # Image Details
 # -------------
 #
-# Watch out for that ``pds-github-util``: its dependencies are *huge* 😮
-# And they take forver to build 😫
+# Note we include some bigger Python packages used by other PDS projects.
 
 COPY m2-repository.tar.bz2 /tmp
 RUN : &&\

@@ -45,8 +45,10 @@ jobs:
                 uses: docker/build-push-action@v2
                 with:
                     push: true
-                    tags: nasapds/pds-github-actions-base:latest
+                    tags: nasapds/github-actions-base:latest
                     secrets: GIT_AUTH_TOKEN=${{secrets.ADMIN_GITHUB_TOKEN}}
 
+
+...
 
 # -*- mode: yaml; indent: 4; fill-column: 120; coding: utf-8 -*-

@@ -46,7 +46,7 @@ jobs:
                 id: meta
                 uses: docker/metadata-action@v3
                 with:
-                    images: nasapds/pds-github-actions-base
+                    images: nasapds/github-actions-base
                     tags: |
                         type=ref,event=tag
                         type=semver,pattern={{version}}
@@ -65,5 +65,6 @@ jobs:
                     tags: ${{steps.meta.outputs.tags}}
                     secrets: GIT_AUTH_TOKEN=${{secrets.ADMIN_GITHUB_TOKEN}}
 
+...
 
 # -*- mode: yaml; indent: 4; fill-column: 120; coding: utf-8 -*-
