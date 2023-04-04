@@ -1,7 +1,7 @@
 # 🌄 PDS Engineering: GitHub Actions Base
 # =======================================
 
-FROM python:3.9.7-alpine3.14
+FROM python:3.9.16-alpine3.16
 
 
 # Support
