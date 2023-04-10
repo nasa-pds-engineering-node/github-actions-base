@@ -7,12 +7,6 @@ FROM python:3.9.16-alpine3.16
 # Support
 # -------
 #
-# Commit-Specific Pins
-# ~~~~~~~~~~~~~~~~~~~~
-
-ENV github_changelog_commit 322e30a78115ab948e358cd916a9f78e55fe21c1
-
-
 # Python Package Pins
 # ~~~~~~~~~~~~~~~~~~~
 
@@ -60,16 +54,9 @@ RUN : &&\
         sphinx-rtd-theme==${sphinx_rtd_theme} \
         twine==${twine} \
         &&\
-    cd /usr/src &&\
-    git clone https://github.com/github-changelog-generator/github-changelog-generator.git &&\
-    cd github-changelog-generator &&\
-    git checkout ${github_changelog_commit} &&\
-    gem build github_changelog_generator.gemspec &&\
-    gem install github_changelog_generator-1.15.2.gem --source https://rubygems.org &&\
+    gem install github_changelog_generator --version 1.16.4 &&\
     wget -qP /usr/local/bin https://github.com/X1011/git-directory-deploy/raw/master/deploy.sh &&\
     chmod +x /usr/local/bin/deploy.sh &&\
-    cd .. &&\
-    rm -r github-changelog-generator &&\
     apk del /build &&\
     rm -rf /var/cache/apk/* &&\
     : /
