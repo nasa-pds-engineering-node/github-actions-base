@@ -10,16 +10,17 @@ FROM python:3.9.16-alpine3.16
 # Python Package Pins
 # ~~~~~~~~~~~~~~~~~~~
 
-ENV github3_py          1.3.0
-ENV lxml                4.6.3
-ENV numpy               1.21.2
-ENV pandas              1.3.4
-ENV requests            2.23.0
-ENV sphinx              3.2.1
-ENV sphinx_argparse     0.2.5
-ENV sphinx_rtd_theme    0.5.0
-ENV sphinxcontrib_redoc 1.6.0
-ENV twine               3.4.2
+ENV github3_py                     1.3.0
+ENV lxml                           4.6.3
+ENV numpy                          1.21.2
+ENV pandas                         1.3.4
+ENV requests                       2.23.0
+ENV sphinx                         3.0.4
+ENV sphinx_substitution_extensions 2020.5.27.0
+ENV sphinx_argparse                0.2.5
+ENV sphinx_rtd_theme               0.5.0
+ENV sphinxcontrib_redoc            1.6.0
+ENV twine                          3.4.2
 
 # Metadata
 # ~~~~~~~~
@@ -53,6 +54,7 @@ RUN : &&\
         sphinx-argparse==${sphinx_argparse} \
         sphinx-rtd-theme==${sphinx_rtd_theme} \
         sphinxcontrib-redoc==${sphinxcontrib_redoc} \
+        sphinx-substitution-extensions==${sphinx_substitution_extensions} \
         twine==${twine} \
         &&\
     gem install github_changelog_generator --version 1.16.4 &&\
