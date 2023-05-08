@@ -40,11 +40,11 @@ jobs:
                     fetch-depth: 0
             -
                 name: 🏢 Docker Buildx Setup
-                uses: docker/setup-buildx-action@v1
+                uses: docker/setup-buildx-action@v2
             -
                 name: 🔍 Metadata Generation
                 id: meta
-                uses: docker/metadata-action@v3
+                uses: docker/metadata-action@v4
                 with:
                     images: nasapds/github-actions-base
                     tags: |
@@ -52,13 +52,13 @@ jobs:
                         type=semver,pattern={{version}}
             -
                 name: 🪵 Docker Hub Login
-                uses: docker/login-action@v1
+                uses: docker/login-action@v2
                 with:
-                    username: ${{secrets.DOCKER_USERNAME}}
-                    password: ${{secrets.DOCKER_PASSWORD}}
+                    username: ${{secrets.DOCKERHUB_USERNAME}}
+                    password: ${{secrets.DOCKERHUB_TOKEN}}
             -
                 name: 😤 Build & Push
-                uses: docker/build-push-action@v2
+                uses: docker/build-push-action@v4
                 with:
                     context: .
                     push: true
