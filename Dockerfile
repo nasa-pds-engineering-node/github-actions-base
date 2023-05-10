@@ -20,6 +20,7 @@ ENV sphinx_substitution_extensions 2020.5.27.0
 ENV sphinx_argparse                0.2.5
 ENV sphinx_rtd_theme               0.5.0
 ENV sphinxcontrib_redoc            1.6.0
+ENV sphinx_copybutton              0.5.2
 ENV twine                          3.4.2
 
 # Metadata
@@ -55,6 +56,7 @@ RUN : &&\
         sphinx-rtd-theme==${sphinx_rtd_theme} \
         sphinxcontrib-redoc==${sphinxcontrib_redoc} \
         sphinx-substitution-extensions==${sphinx_substitution_extensions} \
+        sphinx-copybutton==${sphinx_copybutton} \
         twine==${twine} \
         &&\
     gem install github_changelog_generator --version 1.16.4 &&\
