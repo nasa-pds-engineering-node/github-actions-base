@@ -1,3 +1,7 @@
 .venv
 venv
 *.sublime-workspace
+# This is not a Node.js project, so ignore these
+package-lock.json
+package.json
+node_modules/
